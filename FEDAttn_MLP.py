@@ -1,5 +1,6 @@
 #refer paper
 # https://arxiv.org/pdf/1812.07108.pdf
+# Implementing on the MNIST MLP network
 import collections
 from loguru import logger
 logger.add("Log_file.log")

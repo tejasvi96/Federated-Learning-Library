@@ -1,5 +1,7 @@
-# REfer paper
+# Refer paper
 # https://www.mdpi.com/1424-8220/20/14/4048
+# Implementing on the MNIST MLP network
+
 import collections
 from loguru import logger
 logger.add("Log_file.log")
@@ -256,7 +258,7 @@ for round_num in range(params['num_rounds']):
         break
     print('round {}, loss={}'.format(round_num, prev_loss))
     lossValues.append(prev_loss)
-logger.log(lossValues)
+logger.info(lossValues)
 
 from matplotlib import pyplot as plt
 plt.plot(lossValues)
