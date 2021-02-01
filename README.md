@@ -34,9 +34,9 @@ To test different algorithms we use the standard MNIST dataset and compare the c
 
 To test the personalization we run FedAVG and AdaptiveFL on the synthetic dataset as discussed[here](https://arxiv.org/abs/1812.06127). The results on IID and Non IID dataset looks like this.
 
-![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_8.PNG?raw=True)
+![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_8.png?raw=True)
 
-![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_9.PNG?raw=True)
+![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_9.png?raw=True)
 
 
 We can draw the conclusion that the personalized model in AdaptiveFL is able to determine Non IDness of the data and decides on what contributions to take from the global model. 
