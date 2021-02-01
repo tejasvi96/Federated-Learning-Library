@@ -20,6 +20,8 @@ The choice is made based on a threshold on the  difference of losses between the
 
 The  algorithms discussed above aim to learn a centralized model faster based on the different datasets but in a practical scenario we want personalized models per user.
 To incorporate the personalization of the model, we take motivations from [here](https://arxiv.org/pdf/2003.13461.pdf) , to arrive at a user specific personalized model.
+
+
 1.) [AdaptiveFL](https://arxiv.org/pdf/2003.13461.pdf)- The algorithm makes use of 3 models per client- global, personalized, private. focuses specifically on the Makes use of an adaptive alpha  which is used as a mixing parameter to obtain the weighting of a relevant personal model. The balance between the global and local models  is governed by a parameter alpha which is associated with the diversity of the local model and the global model. In general, when the local and global data distributions are well aligned, one would intuitively expect that the optimal choice for the mixing parameter would be small to gain more from the data of other devices. On the
 other side, when local and global distributions drift significantly, the mixing parameter needs to be close to one to reduce the contribution from the data of other devices on the optimal local model.
 # Results
