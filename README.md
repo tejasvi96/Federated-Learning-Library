@@ -4,7 +4,9 @@ A collection of optimization algorithms for federated learning using TensorFlowF
 ![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_model.png?raw=True)
 
 
-We aim to use Federated Learning for user personalization and explore its potential in the application of next word prediction for mobile keyboards. In a typical federated learning setting we have multiple nodes and a central server with data never leaving the nodes and the gradient computations also being performed by the individual nodes. The central server acts as a orchestrator to aggregate the results from different models with aim to learn a robust model which tries to generalize the behaviour of multiple nodes. The major challenges in a typical federated learning setting are - Optimization Algorithms used to aggregate gradients, Ensuring security of data,  faster communication across the devices. 
+We aim to use Federated Learning for user personalization and explore its potential in the application of next word prediction for mobile keyboards. In a typical federated learning setting we have multiple nodes and a central server with data never leaving the nodes and the gradient computations also being performed by the individual nodes. The central server acts as a orchestrator to aggregate the results from different models with aim to learn a robust model which tries to generalize the behaviour of multiple nodes. The major challenges in a typical federated learning setting are - 
+Optimization Algorithms used to aggregate gradients, Ensuring security of data,  faster communication across the devices. 
+
 ![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_problem.png?raw=True)
 
 To adapt federated learning for personalization, we can modify the setting and assume that the clients also maintain a separate model at their device and based on the global model pass on the relevant information and obtain some information to improve its own local model. 
@@ -26,12 +28,15 @@ The choice is made based on a threshold on the  difference of losses between the
 ![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FedMed_model.png?raw=True)
 
 The  algorithms discussed above aim to learn a centralized model faster based on the different datasets but in a practical scenario we want personalized models per user.
+
+
 To incorporate the personalization of the model, we take motivations from [here](https://arxiv.org/pdf/2003.13461.pdf) , to arrive at a user specific personalized model.
 
 
-1.) [AdaptiveFL](https://arxiv.org/pdf/2003.13461.pdf)- The algorithm makes use of 3 models per client- global, personalized, private. focuses specifically on the Makes use of an adaptive alpha  which is used as a mixing parameter to obtain the weighting of a relevant personal model. The balance between the global and local models  is governed by a parameter alpha which is associated with the diversity of the local model and the global model. In general, when the local and global data distributions are well aligned, one would intuitively expect that the optimal choice for the mixing parameter would be small to gain more from the data of other devices. On the
+1.) [AdaptiveFL](https://arxiv.org/pdf/2003.13461.pdf)- The algorithm makes use of 3 models per client- global, personalized, private. It focuses specifically making use of an adaptive alpha  which is used as a mixing parameter to obtain the weighting of a relevant personal model. The balance between the global and local models  is governed by a parameter alpha which is associated with the diversity of the local model and the global model. In general, when the local and global data distributions are well aligned, one would intuitively expect that the optimal choice for the mixing parameter would be small and not change much from the initial value to gain more from the data of other devices. On the
 other side, when local and global distributions drift significantly, the mixing parameter needs to be close to one to reduce the contribution from the data of other devices on the optimal local model.
 ![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FedAdaptivemodel.png?raw=True)
+
 # Results
 To test different algorithms we use the standard MNIST dataset and compare the convergence rates of these. The problem setup involves the individual clients mimicing the behaviour of the digits with 10 clients each representing different digits. The learning rate was fixed at 0.1 with SGD optimizer for all these experiments. 
 
@@ -49,4 +54,4 @@ To test the personalization we run FedAVG and AdaptiveFL on the synthetic datase
 ![Images.](https://github.com/tejasvi96/Federated-Learning-Library/blob/main/images/FL_9.png?raw=True)
 
 
-We can draw the conclusion that the personalized model in AdaptiveFL is able to determine Non IDness of the data and decides on what contributions to take from the global model. 
+We can draw the conclusion that the personalized model in AdaptiveFL is able to determine Non IIDness of the data and decides on what contributions to take from the global model. 
